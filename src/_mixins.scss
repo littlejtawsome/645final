@@ -1,0 +1,52 @@
+@mixin backImage($image) {
+    background: url($image);
+}
+
+@mixin socialMedia {
+ display:block; 
+  width:36px;
+  height:36px;
+  text-indent: -9999px;
+  }
+@mixin clearfix {
+     &:before, &:after {
+       content: '';
+     }
+     &:after {
+       clear: both;
+     }
+}
+
+//폴리나 소스
+@mixin break($args...) {
+  @if length($args) == 1 {
+   @media (min-width: nth($args, 1)) {
+       @content;
+   } 
+ } @else {
+  @media (min-width: nth($args, 1)) and 
+         (max-width: nth($args, 2)) {
+      @content;
+  }
+}
+}
+//friday 5pm
+// @mixin smscreen {
+//     @media (max-width: $smscreen){
+//       @content;
+//     }
+//   }
+// @mixin mdscreen {
+//      @media (min-width: ($smscreen + 1)) and 
+//      (max-width: $mdscreen){
+//           @content;
+//      } 
+//     } 
+// @mixin lgscreen { 
+//     @media (min-width: ($mdscreen + 1)) and
+//       (max-width: $lgscreen){
+//           @content;
+//          }
+//      }
+
+// @mixin square($size){ $calculated: 32px * $size; width: $calculated; height: $calculated; }

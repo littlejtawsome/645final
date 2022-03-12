@@ -1,0 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@300&family=Roboto:wght@100;300;400&display=swap');
+
+//this is variable 
+$red: #E65C43;
+$white: #fff;
+$background:#fff;
+$h_background: #f25c43;
+$grey : #666;
+$greybar:#F5F6F6;
+$footer:#30353D;
+
+
+$font: 'Roboto', sans-sarif;
+$font-size: (
+    "body": 1em,
+    "lg": 4em,
+    "md": 2.5em,
+    "sm": 2em
+);
+$font-weight: (
+    "light": 100,
+    "regular": 400,
+    "bold": 900
+);
+
+// $smscreen: 459px;
+// $mdscreen: 767px;
+// $lgscreen: 959px;
