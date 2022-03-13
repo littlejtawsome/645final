@@ -1,6 +1,6 @@
 
 // /* NAVIGATION */
- figure{
+ main figure{
      width:400px;
      height:190px;
     @include backImage('../images/logo.png') ;
@@ -10,13 +10,22 @@
      display:block;
      margin:0;
        @include break(0, 495px) {
-            width:300px;
+            float: none;     // last minute fixed
+            background-size: auto;// last minute fixed
+            height: 130px;// last minute fixed
+            background-position: center;// last minute fixed
             }
         @include break(496px, 767px){
-            width: 460px;
+            float: none;     // last minute fixed
+            background-size: auto;// last minute fixed
+            height: 130px;
+            background-position: 0;
         }
         @include break(768px, 959px) {
-            width:768px;
+            float: none;     // last minute fixed
+            background-size: auto;// last minute fixed
+            height: (130px + 10px);
+            background-position: 0;
     }
 }
 nav {
@@ -25,7 +34,10 @@ nav {
     float:left;
     text-align:right;
     @include break(0, 495px) {
-        margin-bottom:40px !important;
+        margin-bottom: 40px !important;
+        width: auto;
+        height: auto;    //fixed last minute
+        text-align: center;    //fixed last minute
         }
 
      @include break(768px, 959px) {
@@ -36,21 +48,26 @@ nav {
         }
     
     ul { 
-        @include break(768px, 959px) {
-            margin-top:0; 
-        }
         list-style-type:none;
         margin-top:95px;
+        @include break(768px, 959px) {
+            margin-top:0; 
+            }
        
         li {
-            @include break(768px, 959px) {  
-            font-size:0.8em;
-            margin:0 5px;
-            }
             display:inline;
             font-size:0.8em;
             margin-right:10px;
-               
+            @include break(496px, 767px){
+                font-size:0.8em;
+                margin:0 5px;
+            }
+            @include break(768px, 959px) {
+                font-size:1em;
+                margin:0 10px;
+            }
+        }
+            
             a {
                 color:$red;
                 text-decoration:none;
@@ -61,7 +78,7 @@ nav {
                 }
             }
         } 
-    }
+ 
 
 
 /* HEADER */
@@ -85,17 +102,16 @@ nav {
            font-weight:map-get($font-weight,light);
            font-size:3em;
            line-height:0;
-
-                @include break(768px, 959px) {
-                    font-size:3em;
+               @include break(0, 495px) {
+                font-size:1.4em;
+                margin-bottom:20px;
                 }
                 @include break(496px, 767px){
-                    font-size:2em;
-                }
-                // @include break(0, 495px) {
-                //     font-size:1.4em;
-                //     margin-bottom:20px;
-                // }
+                    font-size:(2em);
+                }         
+                @include break(768px, 959px) {
+                    font-size:3em;
+                }      
         }
        h2 {
            color:$white;
@@ -103,14 +119,14 @@ nav {
            font-size:map-get($font-size, sm);
            line-height:0;
            margin-bottom:70px;
-            @include break(768px, 959px) {
-                font-size:1.5em;
+           @include break(0, 495px) {
+            font-size:1.4em;
             }
             @include break(496px, 767px){
                 font-size:1em;
             }
-            @include break(0, 495px) {
-                font-size:1.4em;
+            @include break(768px, 959px) {
+                font-size:1.5em;
             }
         }
        h3 {
@@ -119,15 +135,13 @@ nav {
            font-size:map-get($font-size, sm);
            line-height:0;
            margin-bottom:50px;
-          
+           @include break(0, 495px) {
+            color:#FFF;
+            font-size:1em;
+        }
             @include break(496px, 767px){
                 font-size:1.5em;
             }
-            @include break(0, 495px) {
-                color:#FFF;
-                font-size:1em;
-            }
-
        } 
 }
 
@@ -144,23 +158,33 @@ nav {
         font-size:map-get($font-size,md);
         font-weight:map-get($font-weight,light);
         padding-top:50px;
-        @include break(496px, 767px){
-            font-size:2em;
-            padding-top:50px;
-        }
         @include break(0, 495px) {
             font-size:1.5em;
             padding-top:30px;
         }
+        @include break(496px, 767px){
+            font-size:2em;
+            padding-top:50px;
+        }
+      
 
     }
  }
 #content {
     width:940px;
     margin:20px auto;
+    @include break(0, 495px) {
+        width: 360px;
+        }          
+    @include break(496px, 767px){
+        width: 460px;
+    }        
     @include break(768px, 959px) {
-        width:inherit;
+        width: 768px;
     }
+
+   
+    
     h3 {
         color:$grey;
         font-size:map-get($font-size,sm);
@@ -170,45 +194,52 @@ nav {
         }
     }
     #products {
-        width:460px;
+        width: 460px;
+        // ((959 - 40) / 960)*100%; 
         float:left;
-  
-        img {
-        float:left;
-        margin-right:20px;
         @include break(0, 495px) {
-            display:none;
+            float:none;
         }
-       }
-
-        article  {
-        margin-bottom:40px;
-       }
-         h4 {
-        line-height:1em;
-       }
-       @include break(768px, 959px) {
-         width:46%;margin:0 2%;}
         @include break(496px, 767px){
             width:96%;
             margin:0 2%;
             float:none;
         }
+        @include break(768px, 959px) {
+            width:46%;
+           
+
+        article  {
+            margin-bottom:40px;
+                 img {
+                    float:left;
+                    margin-right:20px;
+                    }
+                }
+            }
+        h4 {
+           line-height:1em;
+        } 
     }
   
     #testimonials {
         width:460px;
         float:right;
-        @include break(768px, 959px) {
-            width:46%;margin:0 2%;
-        }
-     
+          @include break(0, 495px) {
+            float: none;
+            }
+                 
         @include break(496px, 767px){
-            width:96%;
+            width: 96%;
             margin:0 2%;
-            float:none;
+            float: none;
         }
-       }
+        @include break(768px, 959px) {
+            width: 46%;
+            margin:0 2%;
+        }
+       
+    }
    
 }
 

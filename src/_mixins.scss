@@ -17,7 +17,7 @@
      }
 }
 
-//폴리나 소스
+//media query function
 @mixin break($args...) {
   @if length($args) == 1 {
    @media (min-width: nth($args, 1)) {
@@ -30,7 +30,7 @@
   }
 }
 }
-//friday 5pm
+//friday 5pm (didn't work)
 // @mixin smscreen {
 //     @media (max-width: $smscreen){
 //       @content;
